@@ -18,7 +18,7 @@ public class DailyLogin extends AppCompatActivity {
         int action = event.getAction();
 
         if (action == MotionEvent.ACTION_UP) {
-            Intent intent = new Intent(DailyLogin.this, MainActivity.class);
+            Intent intent = new Intent(DailyLogin.this, StoryActivity.class);
             DailyLogin.this.startActivity(intent);
         }
         return true;
