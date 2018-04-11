@@ -30,18 +30,27 @@
             android:name=".DailyLogin"
             android:exported="true"
             android:screenOrientation="portrait" />
-        <activity android:name=".MainActivity"
+        <activity
+            android:name=".MainActivity"
             android:exported="true"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".StoryActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".StoryActivity"
             android:exported="true"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".StartActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".StartActivity"
             android:exported="true"
-            android:screenOrientation="portrait"/>
-        <activity android:name=".FinishActivity"
+            android:screenOrientation="portrait" />
+        <activity
+            android:name=".FinishActivity"
             android:exported="true"
-            android:screenOrientation="portrait"></activity>
+            android:screenOrientation="portrait" />
+        <activity android:name=".jump_game.jump_game" />
+        <activity
+            android:name=".Main3Activity"
+            android:exported="true"
+            android:screenOrientation="portrait" />
     </application>
 
 </manifest>

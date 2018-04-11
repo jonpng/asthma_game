@@ -18,10 +18,8 @@ public class SplashScreen extends AppCompatActivity {
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
 
-    Date todayDate = new Date();
-    int todayInt = (int) todayDate.getTime() / 1000;
+    int todayInt = (int) (new Date().getTime() / 1000);
     int lastLogin;
-    Date lastDate;
 
     int daysApart;
 
@@ -45,9 +43,12 @@ public class SplashScreen extends AppCompatActivity {
         sharedPref = this.getSharedPreferences("mainPrefs", Context.MODE_PRIVATE);
         editor = sharedPref.edit();
 
-        lastLogin = sharedPref.getInt("lastLogin", 1);
-        lastDate = new Date((long) lastLogin * 1000L);
-        daysApart = (int)((todayDate.getTime() - lastDate.getTime()) / (1000*60*60*24l));
+        lastLogin = sharedPref.getInt("lastLogin", 1023413456);
+        daysApart = ((todayInt - lastLogin) / 86400); //86400
+//        Log.d("PNG", Integer.toString(todayInt));
+//        Log.d("PNG", Integer.toString(lastLogin));
+//        Log.d("PNG", Integer.toString(daysApart));
+
     }
 
     @Override
@@ -64,9 +65,11 @@ public class SplashScreen extends AppCompatActivity {
                 }
                 intent = new Intent(SplashScreen.this, DailyLogin.class);
                 editor.putInt("lastLogin", todayInt);
+                editor.commit();
             } else {
-                intent = new Intent(SplashScreen.this, MainActivity.class);
+                intent = new Intent(SplashScreen.this, StoryActivity.class);
             }
+//            Log.d("PNG", Integer.toString(sharedPref.getInt("loginStreak", 12)));
             SplashScreen.this.startActivity(intent);
         }
         return true;
