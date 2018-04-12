@@ -10,6 +10,7 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+import java.util.Date;
 
 import java.io.ByteArrayOutputStream;
 import java.io.File;
@@ -22,6 +23,9 @@ import be.tarsos.dsp.io.TarsosDSPAudioFormat;
 import be.tarsos.dsp.writer.WaveHeader;
 
 public class MainActivity extends AppCompatActivity {
+    private Date startTime;
+    private Date endTime;
+    private int cnt;
 
     private class AudioRecordingProcessAndSaveTask extends AsyncTask<Object, Void, Void> {
 
@@ -275,9 +279,10 @@ public class MainActivity extends AppCompatActivity {
                 playerService.playAssetFile("instructions.mp3", new Runnable() {
                     @Override
                     public void run() {
+                        playerService.playAssetFile("beep.wav", null, failedRunnable);
                         enableStartButton();
                         startButton.performClick();
-                        playerService.playAssetFile("beep.wav", null, failedRunnable);
+                        startTime = new Date();
                     }
                 }, failedRunnable);
             }
@@ -320,6 +325,12 @@ public class MainActivity extends AppCompatActivity {
                 } else {
                     //startButton.setText("Start");
                     endRecord();
+                    endTime = new Date();
+                    long mills = endTime.getTime() - startTime.getTime();
+                    cnt = (int) (((mills - 3500) / 1000) * 2.45);
+                    if (cnt < 0) {
+                        cnt = 0;
+                    }
                     disableStartButton();
                     if (!waitForResult) {
                         launchFinishScreen(counterText.getText().toString());
@@ -348,7 +359,7 @@ public class MainActivity extends AppCompatActivity {
         if (hasInternet) {
             extras.putString("score", score);
         } else {
-            extras.putString("score", "0");
+            extras.putString("score", Integer.toString(cnt));
         }
         activityIntent.putExtras(extras);
         startActivity(activityIntent);

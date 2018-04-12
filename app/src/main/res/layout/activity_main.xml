@@ -6,6 +6,13 @@
     android:layout_height="match_parent"
     tools:context="cs4605.asthmagame.MainActivity">
 
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline8"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="7dp" />
+
     <ImageView
         android:id="@+id/background"
         android:layout_width="wrap_content"
@@ -45,7 +52,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="29dp" />
+        app:layout_constraintGuide_begin="53dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline3"
@@ -59,7 +66,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="462dp" />
+        app:layout_constraintGuide_begin="493dp" />
 
     <TextView
         android:id="@+id/counterText"
@@ -85,18 +92,18 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="120dp"
-        android:layout_height="61dp"
+        android:layout_width="287dp"
+        android:layout_height="48dp"
         android:text="@string/start_instructions"
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
         app:layout_constraintLeft_toRightOf="@+id/guideline7"
-        app:layout_constraintTop_toBottomOf="@+id/guideline2" />
+        app:layout_constraintTop_toBottomOf="@+id/guideline8" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="16dp" />
+        app:layout_constraintGuide_begin="77dp" />
 
 </android.support.constraint.ConstraintLayout>
