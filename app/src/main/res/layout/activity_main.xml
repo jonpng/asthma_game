@@ -11,18 +11,18 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="7dp" />
+        app:layout_constraintGuide_begin="16dp" />
 
     <ImageView
         android:id="@+id/background"
-        android:layout_width="wrap_content"
+        android:layout_width="387dp"
         android:layout_height="wrap_content"
         android:contentDescription="@string/start_instructions"
         android:scaleType="centerCrop"
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/background_meter" />
+        app:srcCompat="@drawable/background_meter_blank" />
 
     <ImageButton
         android:id="@+id/stopButton"
@@ -92,10 +92,12 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="287dp"
-        android:layout_height="48dp"
+        android:layout_width="219dp"
+        android:layout_height="158dp"
+        android:fontFamily="@font/chalkboardse_bold"
         android:text="@string/start_instructions"
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textSize="40sp"
         app:layout_constraintLeft_toRightOf="@+id/guideline7"
         app:layout_constraintTop_toBottomOf="@+id/guideline8" />
 
@@ -104,6 +106,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="77dp" />
+        app:layout_constraintGuide_begin="133dp" />
 
 </android.support.constraint.ConstraintLayout>
