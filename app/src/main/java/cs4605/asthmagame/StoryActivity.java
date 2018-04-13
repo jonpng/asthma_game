@@ -67,7 +67,8 @@ public class StoryActivity extends AppCompatActivity {
                 if (test > 1) {
                     intent = new Intent(StoryActivity.this, StartActivity.class);
                 } else {
-                    intent = new Intent(StoryActivity.this, Main3Activity.class);
+                    //intent = new Intent(StoryActivity.this, Main3Activity.class);
+                    intent = new Intent(StoryActivity.this, StartActivity.class);
                 }
                 StoryActivity.this.startActivity(intent);
                 finish();

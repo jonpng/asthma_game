@@ -328,7 +328,7 @@ public class MainActivity extends AppCompatActivity {
                     endRecord();
                     endTime = new Date();
                     long mills = endTime.getTime() - startTime.getTime();
-                    cnt = (int) (((mills - 3500) / 1000) * 2.45);
+                    cnt = (int) (((mills - 3200) / 1000) * 2.45);
                     if (cnt < 0) {
                         cnt = 0;
                     }
