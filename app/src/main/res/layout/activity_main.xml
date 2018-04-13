@@ -92,12 +92,13 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="219dp"
-        android:layout_height="158dp"
+        android:layout_width="244dp"
+        android:layout_height="161dp"
         android:fontFamily="@font/chalkboardse_bold"
         android:text="@string/start_instructions"
+        android:textAlignment="center"
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
-        android:textSize="40sp"
+        android:textSize="36sp"
         app:layout_constraintLeft_toRightOf="@+id/guideline7"
         app:layout_constraintTop_toBottomOf="@+id/guideline8" />
 
@@ -106,6 +107,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="133dp" />
+        app:layout_constraintGuide_begin="108dp" />
 
 </android.support.constraint.ConstraintLayout>
