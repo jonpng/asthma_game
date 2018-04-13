@@ -6,6 +6,10 @@ import android.os.Bundle;
 import android.view.MotionEvent;
 import android.widget.ImageView;
 import android.view.View;
+import java.util.Date;
+import java.text.ParseException;
+import android.icu.text.SimpleDateFormat;
+import java.lang.*;
 
 public class StoryActivity extends AppCompatActivity {
     private ImageView story1;
@@ -13,6 +17,8 @@ public class StoryActivity extends AppCompatActivity {
     private ImageView story3;
     private ImageView story4;
     private int current;
+    private DatabaseHandler db = new DatabaseHandler(this);
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,8 +50,27 @@ public class StoryActivity extends AppCompatActivity {
                 story3.setVisibility(View.INVISIBLE);
             } else {
                 current = 0;
-                Intent intent = new Intent(StoryActivity.this, StartActivity.class);
+                String canisterDate = db.getSettingDate();
+                Date lastCanisterDate = new Date();
+                lastCanisterDate = new Date(lastCanisterDate.getTime() - 2 * 24 * 3600 * 1000 );
+                if (canisterDate != null) {
+                    try {
+                        lastCanisterDate = sdf.parse(canisterDate);
+                    } catch (ParseException e) {
+                        lastCanisterDate = new Date(lastCanisterDate.getTime() - 2 * 24 * 3600 * 1000 );
+                    }
+                }
+                Date ctime = new Date();
+                Intent intent;
+                long diffDays = (ctime.getTime()- lastCanisterDate.getTime()) / (1000 * 60 * 60 * 24);
+                int test = ((int) diffDays);
+                if (test > 1) {
+                    intent = new Intent(StoryActivity.this, StartActivity.class);
+                } else {
+                    intent = new Intent(StoryActivity.this, Main3Activity.class);
+                }
                 StoryActivity.this.startActivity(intent);
+                finish();
             }
             current ++;
         }

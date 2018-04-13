@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     private Date startTime;
     private Date endTime;
     private int cnt;
+    private DatabaseHandler db = new DatabaseHandler(this);
 
     private class AudioRecordingProcessAndSaveTask extends AsyncTask<Object, Void, Void> {
 
@@ -357,8 +358,10 @@ public class MainActivity extends AppCompatActivity {
         Bundle extras = new Bundle();
         extras.putString("prefix", participantPrefix);
         if (hasInternet) {
+            db.addCanister(new Canister(startTime, Integer.parseInt(score)));
             extras.putString("score", score);
         } else {
+            db.addCanister(new Canister(startTime, cnt));
             extras.putString("score", Integer.toString(cnt));
         }
         activityIntent.putExtras(extras);
