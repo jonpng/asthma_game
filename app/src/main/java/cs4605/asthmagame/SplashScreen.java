@@ -44,10 +44,10 @@ public class SplashScreen extends AppCompatActivity {
         editor = sharedPref.edit();
 
         lastLogin = sharedPref.getInt("lastLogin", 1023413456);
-        daysApart = ((todayInt - lastLogin) / 86400); //86400
-//        Log.d("PNG", Integer.toString(todayInt));
-//        Log.d("PNG", Integer.toString(lastLogin));
-//        Log.d("PNG", Integer.toString(daysApart));
+        daysApart = ((todayInt - lastLogin)); //86400
+        Log.d("PNG", Integer.toString(todayInt));
+        Log.d("PNG", Integer.toString(lastLogin));
+        Log.d("PNG", Integer.toString(daysApart));
 
     }
 
@@ -58,8 +58,8 @@ public class SplashScreen extends AppCompatActivity {
         if (action == MotionEvent.ACTION_UP) {
             Intent intent;
             if (daysApart >= 1) {
-                if (daysApart == 1) {
-                    editor.putInt("loginStreak", sharedPref.getInt("loginStreak", 1) + 1);
+                if (daysApart >= 1) {
+                    editor.putInt("loginStreak", sharedPref.getInt("loginStreak", 0) + 1);
                 } else {
                     editor.putInt("loginStreak", 1);
                 }
@@ -67,9 +67,9 @@ public class SplashScreen extends AppCompatActivity {
                 editor.putInt("lastLogin", todayInt);
                 editor.commit();
             } else {
-                intent = new Intent(SplashScreen.this, StoryActivity.class);
+                intent = new Intent(SplashScreen.this, Main3Activity.class);
             }
-//            Log.d("PNG", Integer.toString(sharedPref.getInt("loginStreak", 12)));
+            Log.d("PNG", Integer.toString(sharedPref.getInt("loginStreak", 12)));
             SplashScreen.this.startActivity(intent);
         }
         return true;

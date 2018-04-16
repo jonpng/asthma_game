@@ -5,6 +5,7 @@ import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -42,10 +43,36 @@ public class DailyLogin extends AppCompatActivity {
         TextView coint3 = (TextView) findViewById(R.id.coint3);
         TextView coint4 = (TextView) findViewById(R.id.coint4);
 
+        TextView plus = (TextView) findViewById(R.id.plus);
+        TextView plus1 = (TextView) findViewById(R.id.plus1);
+        TextView plus2 = (TextView) findViewById(R.id.plus2);
+        TextView plus3 = (TextView) findViewById(R.id.plus3);
+        TextView plus4 = (TextView) findViewById(R.id.plus4);
+
+        plus.setText("");
+        plus1.setText("");
+        plus2.setText("");
+        plus3.setText("");
+        plus4.setText("");
+
+        ImageView lun = (ImageView) findViewById(R.id.lung);
+        ImageView lun1 = (ImageView) findViewById(R.id.lung1);
+        ImageView lun2 = (ImageView) findViewById(R.id.lung2);
+        ImageView lun3 = (ImageView) findViewById(R.id.lung3);
+        ImageView lun4 = (ImageView) findViewById(R.id.lung4);
+
+        lun.setImageResource(0);
+        lun1.setImageResource(0);
+        lun2.setImageResource(0);
+        lun3.setImageResource(0);
+        lun4.setImageResource(0);
+
         SharedPreferences sharedPref = this.getSharedPreferences("mainPrefs", Context.MODE_PRIVATE);
         SharedPreferences.Editor editor = sharedPref.edit();
 
         int streak = sharedPref.getInt("loginStreak", 1);
+        int earn = (streak > 5) ? 50 : streak * 10;
+
 
         if (streak == 2) {
             day.setImageResource(R.drawable.day);
@@ -63,14 +90,33 @@ public class DailyLogin extends AppCompatActivity {
             int c3 = streak + 1;
             int c4 = streak + 2;
 
+            if (c % 7 == 0) {
+                plus.setText("+");
+                lun.setImageResource(R.drawable.lungfin);
+            }
+            if (c1 % 7 == 0) {
+                plus1.setText("+");
+                lun1.setImageResource(R.drawable.lungfin);
+            }
+            if (streak % 7 == 0) {
+                plus2.setText("+");
+                lun2.setImageResource(R.drawable.lungfin);
+            }
+            if (c3 % 7 == 0) {
+                plus3.setText("+");
+                lun3.setImageResource(R.drawable.lungfin);
+            }
+            if (c4 % 7 == 0) {
+                plus4.setText("+");
+                lun4.setImageResource(R.drawable.lungfin);
+            }
+
             day.setImageResource(R.drawable.day);
             day1.setImageResource(R.drawable.day);
             day2.setImageResource(R.drawable.today);
 
             lt1.setImageResource(R.drawable.tick);
             lt2.setImageResource(R.drawable.tick);
-
-            int earn = (streak > 5) ? 50 : streak * 10;
 
             dayt.setText(Integer.toString(c));
             dayt1.setText(Integer.toString(c1));
@@ -82,10 +128,11 @@ public class DailyLogin extends AppCompatActivity {
             coint2.setText(Integer.toString(earn));
             coint3.setText(Integer.toString((c3 > 5) ? 50 : c3 * 10));
             coint4.setText(Integer.toString((c4 > 5) ? 50 : c4 * 10));
-
-            editor.putInt("coins", earn);
-            editor.commit();
         }
+        editor.putInt("coins", sharedPref.getInt("coins", 0) + earn);
+//        editor.putInt("coins", 0); // RESET
+        editor.commit();
+        Log.d("PNG", Integer.toString(sharedPref.getInt("coins", 12)));
     }
 
     @Override
@@ -93,7 +140,7 @@ public class DailyLogin extends AppCompatActivity {
         int action = event.getAction();
 
         if (action == MotionEvent.ACTION_UP) {
-            Intent intent = new Intent(DailyLogin.this, StoryActivity.class);
+            Intent intent = new Intent(DailyLogin.this, Main3Activity.class);
             DailyLogin.this.startActivity(intent);
         }
         return true;
