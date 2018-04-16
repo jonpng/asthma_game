@@ -11,67 +11,67 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="401dp" />
+        app:layout_constraintGuide_begin="414dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinemeter9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="136dp" />
+        app:layout_constraintGuide_begin="150dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinemeter8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="167dp" />
+        app:layout_constraintGuide_begin="175dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinemeter7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="196dp" />
+        app:layout_constraintGuide_begin="206dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinemeter6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="226dp" />
+        app:layout_constraintGuide_begin="237dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinemeter5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="255dp" />
+        app:layout_constraintGuide_begin="267dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinemeter4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="284dp" />
+        app:layout_constraintGuide_begin="296dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinemeter3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="313dp" />
+        app:layout_constraintGuide_begin="327dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinemeter2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="343dp" />
+        app:layout_constraintGuide_begin="356dp" />
 
     <ImageView
         android:id="@+id/background3"
-        android:layout_width="wrap_content"
+        android:layout_width="384dp"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
         android:visibility="visible"
@@ -126,7 +126,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="29dp" />
+        app:layout_constraintGuide_begin="49dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline3"
@@ -140,7 +140,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="462dp" />
+        app:layout_constraintGuide_begin="489dp" />
 
     <TextView
         android:id="@+id/scoreText"
@@ -162,7 +162,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="478dp" />
+        app:layout_constraintGuide_begin="489dp" />
 
     <ImageView
         android:id="@+id/imageRedLvl"
@@ -349,6 +349,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="372dp" />
+        app:layout_constraintGuide_begin="386dp" />
 
 </android.support.constraint.ConstraintLayout>

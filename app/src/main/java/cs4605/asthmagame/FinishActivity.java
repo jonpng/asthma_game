@@ -105,32 +105,32 @@ public class FinishActivity extends AppCompatActivity {
         imageGreenLvl10.setVisibility(View.INVISIBLE);
 
 
-        if (score < 8) {
+        if (score < 4) {
             imageViewRed.setVisibility(View.VISIBLE);
             imageRedLvl.setVisibility(View.VISIBLE);
-        } else if (score < 16) {
+        } else if (score < 10) {
             imageViewRed.setVisibility(View.VISIBLE);
             imageRedLvl.setVisibility(View.VISIBLE);
             imageRedLvl2.setVisibility(View.VISIBLE);
-        } else if (score < 24) {
+        } else if (score < 17) {
             imageViewRed.setVisibility(View.VISIBLE);
             imageRedLvl.setVisibility(View.VISIBLE);
             imageRedLvl2.setVisibility(View.VISIBLE);
             imageRedLvl3.setVisibility(View.VISIBLE);
-        } else if (score < 32) {
+        } else if (score < 24) {
             imageViewYellow.setVisibility(View.VISIBLE);
             imageYellowLvl.setVisibility(View.VISIBLE);
             imageYellowLvl2.setVisibility(View.VISIBLE);
             imageYellowLvl3.setVisibility(View.VISIBLE);
             imageYellowLvl4.setVisibility(View.VISIBLE);
-        } else if (score < 40) {
+        } else if (score < 31) {
             imageViewYellow.setVisibility(View.VISIBLE);
             imageYellowLvl.setVisibility(View.VISIBLE);
             imageYellowLvl2.setVisibility(View.VISIBLE);
             imageYellowLvl3.setVisibility(View.VISIBLE);
             imageYellowLvl4.setVisibility(View.VISIBLE);
             imageYellowLvl5.setVisibility(View.VISIBLE);
-       } else if (score < 48) {
+       } else if (score < 38) {
             imageViewYellow.setVisibility(View.VISIBLE);
             imageYellowLvl.setVisibility(View.VISIBLE);
             imageYellowLvl2.setVisibility(View.VISIBLE);
@@ -138,7 +138,7 @@ public class FinishActivity extends AppCompatActivity {
             imageYellowLvl4.setVisibility(View.VISIBLE);
             imageYellowLvl5.setVisibility(View.VISIBLE);
             imageYellowLvl6.setVisibility(View.VISIBLE);
-        } else if (score < 56) {
+        } else if (score < 45) {
             imageViewYellow.setVisibility(View.VISIBLE);
             imageYellowLvl.setVisibility(View.VISIBLE);
             imageYellowLvl2.setVisibility(View.VISIBLE);
@@ -147,7 +147,7 @@ public class FinishActivity extends AppCompatActivity {
             imageYellowLvl5.setVisibility(View.VISIBLE);
             imageYellowLvl6.setVisibility(View.VISIBLE);
             imageYellowLvl7.setVisibility(View.VISIBLE);
-        } else if (score < 64) {
+        } else if (score < 52) {
             imageViewGreen.setVisibility(View.VISIBLE);
             imageGreenLvl.setVisibility(View.VISIBLE);
             imageGreenLvl2.setVisibility(View.VISIBLE);
@@ -157,7 +157,7 @@ public class FinishActivity extends AppCompatActivity {
             imageGreenLvl6.setVisibility(View.VISIBLE);
             imageGreenLvl7.setVisibility(View.VISIBLE);
             imageGreenLvl8.setVisibility(View.VISIBLE);
-        } else if (score < 72) {
+        } else if (score < 59) {
             imageViewGreen.setVisibility(View.VISIBLE);
             imageGreenLvl.setVisibility(View.VISIBLE);
             imageGreenLvl2.setVisibility(View.VISIBLE);
