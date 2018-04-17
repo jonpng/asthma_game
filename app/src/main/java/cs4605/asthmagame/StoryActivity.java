@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import android.view.View;
 import java.util.Date;
 import java.text.ParseException;
-import android.icu.text.SimpleDateFormat;
+import java.text.SimpleDateFormat;
 import java.lang.*;
 
 public class StoryActivity extends AppCompatActivity {
@@ -64,7 +64,7 @@ public class StoryActivity extends AppCompatActivity {
                 Intent intent;
                 long diffDays = (ctime.getTime()- lastCanisterDate.getTime()) / (1000 * 60 * 60 * 24);
                 int test = ((int) diffDays);
-                if (test > 1) {
+                if (test > 0) {
                     intent = new Intent(StoryActivity.this, StartActivity.class);
                 } else {
                     intent = new Intent(StoryActivity.this, MainMenuActivity.class);

@@ -72,7 +72,11 @@
         android:id="@+id/counterText"
         android:layout_width="39dp"
         android:layout_height="39dp"
+        android:fontFamily="casual"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintLeft_toRightOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/guideline6" />
 
@@ -81,7 +85,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="55dp" />
+        app:layout_constraintGuide_begin="57dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline6"
@@ -91,13 +95,25 @@
         app:layout_constraintGuide_begin="478dp" />
 
     <TextView
+        android:id="@+id/textProcessing"
+        android:layout_width="162dp"
+        android:layout_height="77dp"
+        android:fontFamily="casual"
+        android:text="Processing Please Wait..."
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:textSize="23sp"
+        android:textStyle="bold"
+        android:visibility="invisible"
+        app:layout_constraintRight_toLeftOf="@+id/guideline3"
+        app:layout_constraintTop_toBottomOf="@+id/guideline4" />
+
+    <TextView
         android:id="@+id/textView"
         android:layout_width="244dp"
         android:layout_height="161dp"
-        android:fontFamily="casual"
         android:text="@string/start_instructions"
         android:textAlignment="center"
-        android:textAppearance="@android:style/TextAppearance.Material.Medium"
+        android:textAppearance="@android:style/TextAppearance.Material.Large"
         android:textSize="32sp"
         android:textStyle="bold"
         app:layout_constraintLeft_toRightOf="@+id/guideline7"

@@ -10,9 +10,16 @@ import android.view.MotionEvent;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
+
 import cs4605.asthmagame.jump_game.jump_game;
 
 public class DailyLogin extends AppCompatActivity {
+
+    private DatabaseHandler db = new DatabaseHandler(this);
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -140,8 +147,30 @@ public class DailyLogin extends AppCompatActivity {
         int action = event.getAction();
 
         if (action == MotionEvent.ACTION_UP) {
-            Intent intent = new Intent(DailyLogin.this, StoryActivity.class);
+            String canisterDate = db.getSettingDate();
+            Date lastCanisterDate = new Date();
+            lastCanisterDate = new Date(lastCanisterDate.getTime() - 2 * 24 * 3600 * 1000 );
+            if (canisterDate != null) {
+                try {
+                    lastCanisterDate = sdf.parse(canisterDate);
+                } catch (ParseException e) {
+                    lastCanisterDate = new Date(lastCanisterDate.getTime() - 2 * 24 * 3600 * 1000 );
+                }
+            }
+            Date ctime = new Date();
+            Intent intent;
+            long diffDays = (ctime.getTime()- lastCanisterDate.getTime()) / (1000 * 60 * 60 * 24);
+            int test = ((int) diffDays);
+            if (test > 0) {
+                intent = new Intent(DailyLogin.this, StoryActivity.class);
+            } else {
+                intent = new Intent(DailyLogin.this, MainMenuActivity.class);
+                //intent = new Intent(StoryActivity.this, StartActivity.class);
+            }
+
+            //Intent intent = new Intent(DailyLogin.this, StoryActivity.class);
             DailyLogin.this.startActivity(intent);
+            finish();
         }
         return true;
     }

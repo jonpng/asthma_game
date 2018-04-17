@@ -11,63 +11,63 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="414dp" />
+        app:layout_constraintGuide_begin="405dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinemeter9"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="150dp" />
+        app:layout_constraintGuide_begin="138dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinemeter8"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="175dp" />
+        app:layout_constraintGuide_begin="166dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinemeter7"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="206dp" />
+        app:layout_constraintGuide_begin="196dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinemeter6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="237dp" />
+        app:layout_constraintGuide_begin="226dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinemeter5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="267dp" />
+        app:layout_constraintGuide_begin="256dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinemeter4"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="296dp" />
+        app:layout_constraintGuide_begin="286dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinemeter3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="327dp" />
+        app:layout_constraintGuide_begin="315dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guidelinemeter2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="356dp" />
+        app:layout_constraintGuide_begin="345dp" />
 
     <ImageView
         android:id="@+id/background3"
@@ -146,7 +146,10 @@
         android:id="@+id/scoreText"
         android:layout_width="39dp"
         android:layout_height="39dp"
+        android:fontFamily="casual"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:textSize="23sp"
+        android:textStyle="bold"
         app:layout_constraintLeft_toRightOf="@+id/guideline5"
         app:layout_constraintTop_toBottomOf="@+id/guideline6" />
 
@@ -162,7 +165,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="489dp" />
+        app:layout_constraintGuide_begin="479dp" />
 
     <ImageView
         android:id="@+id/imageRedLvl"
@@ -349,6 +352,6 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="386dp" />
+        app:layout_constraintGuide_begin="375dp" />
 
 </android.support.constraint.ConstraintLayout>

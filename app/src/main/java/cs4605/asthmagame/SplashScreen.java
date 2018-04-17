@@ -11,12 +11,17 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.MotionEvent;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 public class SplashScreen extends AppCompatActivity {
 
     SharedPreferences sharedPref;
     SharedPreferences.Editor editor;
+
+    private DatabaseHandler db = new DatabaseHandler(this);
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     int todayInt = (int) (new Date().getTime() / 1000);
     int lastLogin;
@@ -67,11 +72,32 @@ public class SplashScreen extends AppCompatActivity {
                 editor.putInt("lastLogin", todayInt);
                 editor.commit();
             } else {
-                intent = new Intent(SplashScreen.this, MainMenuActivity.class);
+                String canisterDate = db.getSettingDate();
+                Date lastCanisterDate = new Date();
+                lastCanisterDate = new Date(lastCanisterDate.getTime() - 2 * 24 * 3600 * 1000 );
+                if (canisterDate != null) {
+                    try {
+                        lastCanisterDate = sdf.parse(canisterDate);
+                    } catch (ParseException e) {
+                        lastCanisterDate = new Date(lastCanisterDate.getTime() - 2 * 24 * 3600 * 1000 );
+                    }
+                }
+                Date ctime = new Date();
+                long diffDays = (ctime.getTime()- lastCanisterDate.getTime()) / (1000 * 60 * 60 * 24);
+                int test = ((int) diffDays);
+                if (test > 0) {
+                    intent = new Intent(SplashScreen.this, StoryActivity.class);
+                } else {
+                    intent = new Intent(SplashScreen.this, MainMenuActivity.class);
+                    //intent = new Intent(StoryActivity.this, StartActivity.class);
+                }
+
+                //intent = new Intent(SplashScreen.this, MainMenuActivity.class);
                 //intent = new Intent(SplashScreen.this, DailyLogin.class);
             }
             Log.d("PNG", Integer.toString(sharedPref.getInt("loginStreak", 12)));
             SplashScreen.this.startActivity(intent);
+            finish();
         }
         return true;
     }

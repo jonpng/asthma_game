@@ -1,9 +1,11 @@
 package cs4605.asthmagame;
 
 import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.ImageView;
 import android.animation.ValueAnimator;
 import android.view.animation.LinearInterpolator;
@@ -20,6 +22,7 @@ public class Main3Activity extends AppCompatActivity implements SensorEventListe
     SensorManager sensorManager;
     Sensor mSensor;
     ImageView kid;
+    ImageView circle;
 
 
     @Override
@@ -38,6 +41,15 @@ public class Main3Activity extends AppCompatActivity implements SensorEventListe
         final ImageView backgroundOne = (ImageView) findViewById(R.id.background_one);
         final ImageView backgroundTwo = (ImageView) findViewById(R.id.background_two);
         kid = (ImageView) findViewById(R.id.kid);
+
+        // add a way to exit
+        circle = (ImageView) findViewById(R.id.circle);
+        circle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                exitGame();
+            }
+        });
 
         // TO DO: Get use breath to get speed from breath test
         //        Multiply speed by factor (tbd)
@@ -133,6 +145,12 @@ public class Main3Activity extends AppCompatActivity implements SensorEventListe
     protected void onResume() {
         super.onResume();
         sensorManager.registerListener(this, mSensor, SensorManager.SENSOR_DELAY_NORMAL);
+    }
+
+    protected void exitGame() {
+        Intent intent = new Intent(Main3Activity.this, MainMenuActivity.class);
+        Main3Activity.this.startActivity(intent);
+        finish();
     }
 
     @Override
