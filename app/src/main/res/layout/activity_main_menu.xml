@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".MainMenuActivity">
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline15"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="509dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline14"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="444dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline13"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="379dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline12"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="314dp" />
+
+    <ImageView
+        android:id="@+id/imageView"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:contentDescription="menu background"
+        android:scaleType="centerCrop"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:srcCompat="@drawable/menubackground" />
+
+    <ImageButton
+        android:id="@+id/imageButtonRecharge"
+        android:layout_width="118dp"
+        android:layout_height="62dp"
+        app:layout_constraintLeft_toRightOf="@+id/guideline9"
+        app:layout_constraintTop_toBottomOf="@+id/guideline10"
+        app:srcCompat="@drawable/button_recharge" />
+
+    <ImageButton
+        android:id="@+id/imageButtonPlay"
+        android:layout_width="118dp"
+        android:layout_height="62dp"
+        app:layout_constraintLeft_toRightOf="@+id/guideline9"
+        app:layout_constraintTop_toBottomOf="@+id/guideline11"
+        app:srcCompat="@drawable/button_play" />
+
+    <ImageButton
+        android:id="@+id/imageButtonQuiz"
+        android:layout_width="118dp"
+        android:layout_height="62dp"
+        app:layout_constraintLeft_toRightOf="@+id/guideline9"
+        app:layout_constraintTop_toBottomOf="@+id/guideline12"
+        app:srcCompat="@drawable/button_quiz" />
+
+    <ImageButton
+        android:id="@+id/imageButtonShop"
+        android:layout_width="118dp"
+        android:layout_height="62dp"
+        app:layout_constraintLeft_toRightOf="@+id/guideline9"
+        app:layout_constraintTop_toBottomOf="@+id/guideline13"
+        app:srcCompat="@drawable/button_shop" />
+
+    <ImageButton
+        android:id="@+id/imageButtonStory"
+        android:layout_width="118dp"
+        android:layout_height="62dp"
+        app:layout_constraintLeft_toRightOf="@+id/guideline9"
+        app:layout_constraintTop_toBottomOf="@+id/guideline14"
+        app:srcCompat="@drawable/button_story" />
+
+    <ImageButton
+        android:id="@+id/imageButtonSettings"
+        android:layout_width="118dp"
+        android:layout_height="62dp"
+        app:layout_constraintLeft_toRightOf="@+id/guideline9"
+        app:layout_constraintTop_toBottomOf="@+id/guideline15"
+        app:srcCompat="@drawable/button_settings" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline9"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="136dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline11"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="249dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline10"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="184dp" />
+
+</android.support.constraint.ConstraintLayout>
