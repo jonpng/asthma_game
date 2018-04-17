@@ -174,4 +174,11 @@ public class DailyLogin extends AppCompatActivity {
         }
         return true;
     }
+    @Override
+    public void onBackPressed() {
+        Intent activityIntent = new Intent(DailyLogin.this, MainMenuActivity.class);
+        startActivity(activityIntent);
+        finish();
+    }
+
 }

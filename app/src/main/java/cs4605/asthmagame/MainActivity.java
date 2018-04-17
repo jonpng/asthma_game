@@ -10,6 +10,8 @@ import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
 import android.widget.TextView;
+
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import java.io.ByteArrayOutputStream;
@@ -27,6 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private Date endTime;
     private int cnt;
     private DatabaseHandler db = new DatabaseHandler(this);
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     private class AudioRecordingProcessAndSaveTask extends AsyncTask<Object, Void, Void> {
 
@@ -362,11 +365,12 @@ public class MainActivity extends AppCompatActivity {
         Intent activityIntent = new Intent(MainActivity.this, FinishActivity.class);
         Bundle extras = new Bundle();
         extras.putString("prefix", participantPrefix);
+        extras.putString("startDate", sdf.format(startTime));
         if (hasInternet) {
-            db.addCanister(new Canister(startTime, Integer.parseInt(score)));
+            //db.addCanister(new Canister(startTime, Integer.parseInt(score)));
             extras.putString("score", score);
         } else {
-            db.addCanister(new Canister(startTime, cnt));
+            //db.addCanister(new Canister(startTime, cnt));
             extras.putString("score", Integer.toString(cnt));
         }
         activityIntent.putExtras(extras);
@@ -438,4 +442,12 @@ public class MainActivity extends AppCompatActivity {
         counterText.setText("Counter: " + count);
         displayCount = count;
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent activityIntent = new Intent(MainActivity.this, StartActivity.class);
+        startActivity(activityIntent);
+        finish();
+    }
+
 }

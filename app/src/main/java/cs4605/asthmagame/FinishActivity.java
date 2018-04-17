@@ -4,17 +4,22 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.widget.TextView;
+
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.util.Date;
 
 public class FinishActivity extends AppCompatActivity {
 
     private String participantPrefix;
     private String participantScore;
-
+    private Date startDate;
     private ImageButton startButton;
-
+    private Button redoButton;
     private TextView scoreText;
     private ImageView imageViewRed;
     private ImageView imageViewYellow;
@@ -39,6 +44,8 @@ public class FinishActivity extends AppCompatActivity {
     private ImageView imageGreenLvl8;
     private ImageView imageGreenLvl9;
     private ImageView imageGreenLvl10;
+    private DatabaseHandler db = new DatabaseHandler(this);
+    private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
 
     @Override
@@ -47,8 +54,18 @@ public class FinishActivity extends AppCompatActivity {
         setContentView(R.layout.activity_finish);
         participantPrefix = getIntent().getStringExtra("prefix");
         participantScore = getIntent().getStringExtra("score");
+        String participantDate = getIntent().getStringExtra("startDate");
+
+        try {
+            startDate = sdf.parse(participantDate);
+        } catch (ParseException e) {
+            startDate = new Date();
+        }
+
         startButton = (ImageButton) findViewById(R.id.startButton);
+        redoButton = (Button) findViewById(R.id.buttonRedo);
         scoreText = (TextView) findViewById(R.id.scoreText);
+
         if (participantScore != null){
             scoreText.setText(participantScore);
         } else {
@@ -190,12 +207,30 @@ public class FinishActivity extends AppCompatActivity {
             }
         });
 
+        redoButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                redo();
+            }
+        });
+
     }
 
     private void startGame() {
+        db.addCanister(new Canister(startDate, Integer.parseInt(participantScore)));
         Intent activityIntent = new Intent(FinishActivity.this, MainMenuActivity.class);
         startActivity(activityIntent);
         finish();
+    }
+
+    public void redo() {
+        Intent activityIntent = new Intent(FinishActivity.this, StartActivity.class);
+        startActivity(activityIntent);
+        finish();
+    }
+    @Override
+    public void onBackPressed() {
+        redo();
     }
 
 

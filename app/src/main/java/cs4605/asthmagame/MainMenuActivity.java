@@ -66,38 +66,49 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
     private void playGame() {
+        playButton.setImageResource(R.drawable.button_selected);
         Intent activityIntent = new Intent(MainMenuActivity.this, LoadingActivity.class);
         startActivity(activityIntent);
         finish();
     }
 
     private void recharge() {
+        rechargeButton.setImageResource(R.drawable.button_selected);
         Intent activityIntent = new Intent(MainMenuActivity.this, StartActivity.class);
         startActivity(activityIntent);
         finish();
     }
 
     private void quiz() {
-        Intent activityIntent = new Intent(MainMenuActivity.this, SplashScreen.class);
+        quizButton.setImageResource(R.drawable.button_selected);
+        Intent activityIntent = new Intent(MainMenuActivity.this, QuizActivity.class);
         startActivity(activityIntent);
         finish();
     }
 
     private void shop() {
+        shopButton.setImageResource(R.drawable.button_selected);
         Intent activityIntent = new Intent(MainMenuActivity.this, DailyLogin.class);
         startActivity(activityIntent);
         finish();
     }
 
     private void story() {
+        storyButton.setImageResource(R.drawable.button_selected);
         Intent activityIntent = new Intent(MainMenuActivity.this, StoryActivity.class);
         startActivity(activityIntent);
         finish();
     }
 
     private void settings() {
+        settingsButton.setImageResource(R.drawable.button_selected);
         Intent activityIntent = new Intent(MainMenuActivity.this, SplashScreen.class);
         startActivity(activityIntent);
         finish();
     }
+    @Override
+    public void onBackPressed() {
+        finish();
+    }
+
 }

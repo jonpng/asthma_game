@@ -78,5 +78,11 @@ public class StoryActivity extends AppCompatActivity {
 
         return true;
     }
+    @Override
+    public void onBackPressed() {
+        Intent activityIntent = new Intent(StoryActivity.this, MainMenuActivity.class);
+        startActivity(activityIntent);
+        finish();
+    }
 
 }

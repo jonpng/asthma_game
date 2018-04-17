@@ -11,24 +11,25 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:scaleType="centerCrop"
-        app:srcCompat="@drawable/background_login" />
+        app:srcCompat="@drawable/background_factoid" />
 
     <TextView
         android:id="@+id/textViewCategory"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="150dp"
+        android:layout_height="116dp"
         android:fontFamily="casual"
         android:text="TextView"
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
         android:textStyle="bold"
+        android:visibility="visible"
         app:layout_constraintLeft_toRightOf="@+id/guideline16"
         app:layout_constraintTop_toBottomOf="@+id/guideline17"
         tools:text="Assessing Management" />
 
     <TextView
         android:id="@+id/textViewFact"
-        android:layout_width="306dp"
-        android:layout_height="362dp"
+        android:layout_width="330dp"
+        android:layout_height="325dp"
         android:fontFamily="casual"
         android:text="The rule of 2’s helps to check if you are keeping your Asthma in control. If you have symptoms more than 2 times a week, or requiring use of your rescue inhaler more than then 2 times a week, or if you are waking up from sleep 2 times a month, then your asthma is not in control"
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
@@ -42,37 +43,37 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="121dp" />
+        app:layout_constraintGuide_begin="222dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline17"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="85dp" />
+        app:layout_constraintGuide_begin="91dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline18"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="45dp" />
+        app:layout_constraintGuide_begin="30dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline19"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="131dp" />
+        app:layout_constraintGuide_begin="239dp" />
 
     <TextView
         android:id="@+id/textLoading"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:fontFamily="casual"
         android:text="LOADING..."
         android:textAppearance="@android:style/TextAppearance.Material.Medium"
-        android:textSize="20sp"
-        android:fontFamily="casual"
+        android:textSize="16sp"
         app:layout_constraintLeft_toRightOf="@+id/guideline20"
         app:layout_constraintTop_toBottomOf="@+id/guideline21" />
 
@@ -81,14 +82,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="134dp" />
+        app:layout_constraintGuide_begin="291dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline21"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="516dp" />
+        app:layout_constraintGuide_begin="564dp" />
 
     <TextView
         android:id="@+id/textFacts"
@@ -97,7 +98,9 @@
         android:fontFamily="casual"
         android:text="ASTHMA FACTS"
         android:textAppearance="@android:style/TextAppearance.Material.Large"
+        android:textSize="23sp"
         android:textStyle="bold"
+        android:visibility="invisible"
         app:layout_constraintLeft_toRightOf="@+id/guideline22"
         app:layout_constraintTop_toBottomOf="@+id/guideline23" />
 
@@ -106,12 +109,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="vertical"
-        app:layout_constraintGuide_begin="146dp" />
+        app:layout_constraintGuide_begin="192dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline23"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="28dp" />
+        app:layout_constraintGuide_begin="81dp" />
 </android.support.constraint.ConstraintLayout>

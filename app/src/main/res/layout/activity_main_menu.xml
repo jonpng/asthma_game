@@ -47,6 +47,7 @@
 
     <ImageButton
         android:id="@+id/imageButtonRecharge"
+        android:background="@null"
         android:layout_width="118dp"
         android:layout_height="62dp"
         app:layout_constraintLeft_toRightOf="@+id/guideline9"
@@ -55,6 +56,7 @@
 
     <ImageButton
         android:id="@+id/imageButtonPlay"
+        android:background="@null"
         android:layout_width="118dp"
         android:layout_height="62dp"
         app:layout_constraintLeft_toRightOf="@+id/guideline9"
@@ -63,6 +65,7 @@
 
     <ImageButton
         android:id="@+id/imageButtonQuiz"
+        android:background="@null"
         android:layout_width="118dp"
         android:layout_height="62dp"
         app:layout_constraintLeft_toRightOf="@+id/guideline9"
@@ -71,6 +74,7 @@
 
     <ImageButton
         android:id="@+id/imageButtonShop"
+        android:background="@null"
         android:layout_width="118dp"
         android:layout_height="62dp"
         app:layout_constraintLeft_toRightOf="@+id/guideline9"
@@ -79,6 +83,7 @@
 
     <ImageButton
         android:id="@+id/imageButtonStory"
+        android:background="@null"
         android:layout_width="118dp"
         android:layout_height="62dp"
         app:layout_constraintLeft_toRightOf="@+id/guideline9"
@@ -87,6 +92,7 @@
 
     <ImageButton
         android:id="@+id/imageButtonSettings"
+        android:background="@null"
         android:layout_width="118dp"
         android:layout_height="62dp"
         app:layout_constraintLeft_toRightOf="@+id/guideline9"

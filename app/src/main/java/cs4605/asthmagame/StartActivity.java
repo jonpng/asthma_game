@@ -49,4 +49,12 @@ public class StartActivity extends AppCompatActivity {
         startActivity(activityIntent);
         finish();
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent activityIntent = new Intent(StartActivity.this, MainMenuActivity.class);
+        startActivity(activityIntent);
+        finish();
+    }
+
 }

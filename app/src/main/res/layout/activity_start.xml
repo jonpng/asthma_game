@@ -14,7 +14,7 @@
         android:visibility="visible"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:srcCompat="@drawable/background_meter" />
+        app:srcCompat="@drawable/background_blank" />
 
     <ImageView
         android:id="@+id/imageView2"
@@ -26,11 +26,12 @@
 
     <ImageButton
         android:id="@+id/rechargeButton"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
+        android:layout_width="175dp"
+        android:layout_height="75dp"
+        android:scaleType="centerCrop"
         app:layout_constraintRight_toLeftOf="@+id/guideline4"
         app:layout_constraintTop_toBottomOf="@+id/guideline5"
-        app:srcCompat="@drawable/recharge" />
+        app:srcCompat="@drawable/rechargebutton" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline2"
@@ -39,12 +40,20 @@
         android:orientation="vertical"
         app:layout_constraintGuide_begin="333dp" />
 
+    <ImageView
+        android:id="@+id/imageView7"
+        android:layout_width="200dp"
+        android:layout_height="144dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline33"
+        app:layout_constraintRight_toLeftOf="@+id/guideline2"
+        app:srcCompat="@drawable/txt_recharge" />
+
     <android.support.constraint.Guideline
         android:id="@+id/guideline3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="29dp" />
+        app:layout_constraintGuide_begin="53dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline4"
@@ -58,5 +67,35 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="453dp" />
+        app:layout_constraintGuide_begin="516dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline35"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="575dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline34"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_begin="36dp" />
+
+    <ImageView
+        android:id="@+id/imageView8"
+        android:layout_width="90dp"
+        android:layout_height="433dp"
+        app:layout_constraintBottom_toTopOf="@+id/guideline35"
+        app:layout_constraintLeft_toRightOf="@+id/guideline34"
+        app:srcCompat="@drawable/meter" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline33"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="144dp" />
+
 </android.support.constraint.ConstraintLayout>

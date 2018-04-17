@@ -157,4 +157,13 @@ public class Main3Activity extends AppCompatActivity implements SensorEventListe
     public void onAccuracyChanged(Sensor sensor, int accuracy) {
 
     }
+
+    @Override
+    public void onBackPressed() {
+        Intent activityIntent = new Intent(Main3Activity.this, MainMenuActivity.class);
+        startActivity(activityIntent);
+        finish();
+    }
+
+
 }

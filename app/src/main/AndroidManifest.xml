@@ -52,7 +52,8 @@
             android:exported="true"
             android:screenOrientation="portrait" />
         <activity android:name=".MainMenuActivity" />
-        <activity android:name=".LoadingActivity"></activity>
+        <activity android:name=".LoadingActivity" />
+        <activity android:name=".QuizActivity"></activity>
     </application>
 
 </manifest>
