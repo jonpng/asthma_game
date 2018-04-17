@@ -193,7 +193,7 @@ public class FinishActivity extends AppCompatActivity {
     }
 
     private void startGame() {
-        Intent activityIntent = new Intent(FinishActivity.this, SplashScreen.class);
+        Intent activityIntent = new Intent(FinishActivity.this, MainMenuActivity.class);
         startActivity(activityIntent);
         finish();
     }

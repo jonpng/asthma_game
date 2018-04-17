@@ -67,7 +67,8 @@ public class SplashScreen extends AppCompatActivity {
                 editor.putInt("lastLogin", todayInt);
                 editor.commit();
             } else {
-                intent = new Intent(SplashScreen.this, Main3Activity.class);
+                intent = new Intent(SplashScreen.this, MainMenuActivity.class);
+                //intent = new Intent(SplashScreen.this, DailyLogin.class);
             }
             Log.d("PNG", Integer.toString(sharedPref.getInt("loginStreak", 12)));
             SplashScreen.this.startActivity(intent);

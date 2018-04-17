@@ -51,6 +51,8 @@
             android:name=".Main3Activity"
             android:exported="true"
             android:screenOrientation="portrait" />
+        <activity android:name=".MainMenuActivity" />
+        <activity android:name=".LoadingActivity"></activity>
     </application>
 
 </manifest>
