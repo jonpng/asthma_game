@@ -19,7 +19,7 @@ public class FinishActivity extends AppCompatActivity {
     private String participantScore;
     private Date startDate;
     private ImageButton startButton;
-    private Button redoButton;
+    private ImageButton redoButton;
     private TextView scoreText;
     private ImageView imageViewRed;
     private ImageView imageViewYellow;
@@ -63,7 +63,7 @@ public class FinishActivity extends AppCompatActivity {
         }
 
         startButton = (ImageButton) findViewById(R.id.startButton);
-        redoButton = (Button) findViewById(R.id.buttonRedo);
+        redoButton = (ImageButton) findViewById(R.id.redoButton);
         scoreText = (TextView) findViewById(R.id.scoreText);
 
         if (participantScore != null){

@@ -26,12 +26,12 @@
 
     <ImageButton
         android:id="@+id/rechargeButton"
-        android:layout_width="175dp"
+        android:layout_width="203dp"
         android:layout_height="75dp"
         android:scaleType="centerCrop"
-        app:layout_constraintRight_toLeftOf="@+id/guideline4"
+        app:layout_constraintRight_toLeftOf="@id/guideline2"
         app:layout_constraintTop_toBottomOf="@+id/guideline5"
-        app:srcCompat="@drawable/rechargebutton" />
+        app:srcCompat="@drawable/startbutton_n" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline2"
@@ -67,7 +67,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="516dp" />
+        app:layout_constraintGuide_begin="502dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline35"
