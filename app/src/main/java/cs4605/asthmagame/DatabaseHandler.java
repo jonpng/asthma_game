@@ -209,7 +209,7 @@ public class DatabaseHandler  extends SQLiteOpenHelper {
 
         values.put(KEY_QUESTION, "When should I seek emergency help?");
         values.put(KEY_CATEGORY, "Managing Asthma");
-        values.put(KEY_ANSWER, "When ribs are sucking in at your chest and above the collar bone or When you are requiring use of your rescue inhaler more frequently than every 4 hours. When you feel your rescue inhaler is not helping and you continue to feel short of breath.");
+        values.put(KEY_ANSWER, "When ribs are sucking in at your chest and above the collar bone or when you need your rescue inhaler more than every 4 hours. When you feel your inhaler isn't helping and you feel short of breath.");
         values.put(KEY_OPTION2, "Never");
         values.put(KEY_OPTION3, "");
         values.put(KEY_EXPLANATION, "When ribs are sucking in at your chest and above the collar bone, these are called retractions. This is an Emergency. When you are requiring use of your rescue inhaler more frequently than every 4 hours. When you feel your rescue inhaler is not helping and you continue to feel short of breath.");
