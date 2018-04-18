@@ -18,7 +18,7 @@ public class DatabaseHandler  extends SQLiteOpenHelper {
 
     // All Static variables
     // Database Version
-    private static final int DATABASE_VERSION = 5;
+    private static final int DATABASE_VERSION = 7;
 
     // Database Name
     private static final String DATABASE_NAME = "asthma_game";
@@ -72,8 +72,8 @@ public class DatabaseHandler  extends SQLiteOpenHelper {
                 + KEY_OPTION3 + " TEXT," + KEY_EXPLANATION + " TEXT,"
                 + KEY_ANSWERED_CORRECTLY + " TEXT" + ")";
         db.execSQL(CREATE_ACCOUNT_TABLE);
-
         loadQuizTable(db);
+
     }
 
     private void createNewDb(SQLiteDatabase db, int oldVersion, int newVersion) {
@@ -89,7 +89,14 @@ public class DatabaseHandler  extends SQLiteOpenHelper {
      */
     @Override
     public void onUpgrade(SQLiteDatabase db, int oldVersion, int newVersion) {
-        deleteQuizTable(db);
+        String DROP_TABLE = "DROP TABLE " + TABLE_QUIZ;
+        db.execSQL(DROP_TABLE);
+        String CREATE_ACCOUNT_TABLE = "CREATE TABLE " + TABLE_QUIZ + "("
+                + KEY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT," + KEY_QUESTION + " TEXT,"
+                + KEY_CATEGORY + " TEXT," + KEY_ANSWER + " TEXT," + KEY_OPTION2 + " TEXT,"
+                + KEY_OPTION3 + " TEXT," + KEY_EXPLANATION + " TEXT,"
+                + KEY_ANSWERED_CORRECTLY + " TEXT" + ")";
+        db.execSQL(CREATE_ACCOUNT_TABLE);
         loadQuizTable(db);
     }
 

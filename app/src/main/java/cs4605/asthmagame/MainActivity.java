@@ -9,6 +9,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.ImageButton;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import java.text.SimpleDateFormat;
@@ -66,9 +67,12 @@ public class MainActivity extends AppCompatActivity {
         }
     }
 
+    private ImageButton loadingButton;
     private ImageButton startButton;
     private TextView counterText;
     private TextView processingText;
+    private ImageView holdPhoneHeading;
+    private ImageView pressStopHeading;
     private MicrosoftSpeechToTextService microsoftSpeechToTextService;
 
     private AudioService audioService;
@@ -271,7 +275,10 @@ public class MainActivity extends AppCompatActivity {
 
     private void presentInstructions() {
         disableStartButton();
-        processingText.setVisibility(View.INVISIBLE);
+        holdPhoneHeading.setVisibility(View.VISIBLE);
+        pressStopHeading.setVisibility(View.INVISIBLE);
+        loadingButton.setVisibility(View.INVISIBLE);
+
         final Runnable failedRunnable = new Runnable() {
             @Override
             public void run() {
@@ -311,7 +318,8 @@ public class MainActivity extends AppCompatActivity {
         acquireWakeLock();
         participantPrefix = getIntent().getExtras().getString("prefix");
         filePrefix = participantPrefix + "_";
-        boolean hasInternet = true; //getIntent().getExtras().getInt("internet") == 1;
+        //boolean hasInternet = getIntent().getExtras().getInt("internet") == 1;
+        boolean hasInternet = true;
         this.hasInternet = hasInternet;
         waitForResult = hasInternet;
         initializeSpeechService();
@@ -320,9 +328,12 @@ public class MainActivity extends AppCompatActivity {
         if (!hasInternet) {
             counterText.setVisibility(View.INVISIBLE);
         }
+
+        loadingButton = (ImageButton) findViewById(R.id.loadingButton);
         startButton = (ImageButton) findViewById(R.id.stopButton);
-        processingText = (TextView) findViewById(R.id.textProcessing);
-        processingText.setVisibility(View.INVISIBLE);
+
+        holdPhoneHeading = findViewById(R.id.holdPhoneHeading);
+        pressStopHeading = findViewById(R.id.pressStopHeading);
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -381,13 +392,17 @@ public class MainActivity extends AppCompatActivity {
 
     private void disableStartButton() {
         startButton.setVisibility(View.INVISIBLE);
-        processingText.setVisibility(View.VISIBLE);
+        pressStopHeading.setVisibility(View.VISIBLE);
+        holdPhoneHeading.setVisibility(View.INVISIBLE);
+        loadingButton.setVisibility(View.VISIBLE);
         startButton.setClickable(false);
     }
 
     private void enableStartButton() {
         startButton.setVisibility(View.VISIBLE);
-        processingText.setVisibility(View.INVISIBLE);
+        holdPhoneHeading.setVisibility(View.VISIBLE);
+        pressStopHeading.setVisibility(View.INVISIBLE);
+        loadingButton.setVisibility(View.INVISIBLE);
         startButton.setClickable(true);
     }
 

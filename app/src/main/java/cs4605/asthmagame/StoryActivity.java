@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.MotionEvent;
+import android.widget.ImageButton;
 import android.widget.ImageView;
 import android.view.View;
 import java.util.Date;
@@ -35,44 +36,48 @@ public class StoryActivity extends AppCompatActivity {
         story4.setVisibility(View.INVISIBLE);
     }
 
+    private void nextPage() {
+        if (current == 1) {
+            story2.setVisibility(View.VISIBLE);
+            story1.setVisibility(View.INVISIBLE);
+        } else if (current == 2) {
+            story3.setVisibility(View.VISIBLE);
+            story2.setVisibility(View.INVISIBLE);
+        } else if (current == 3) {
+            story4.setVisibility(View.VISIBLE);
+            story3.setVisibility(View.INVISIBLE);
+        } else {
+            current = 0;
+            String canisterDate = db.getSettingDate();
+            Date lastCanisterDate = new Date();
+            lastCanisterDate = new Date(lastCanisterDate.getTime() - 2 * 24 * 3600 * 1000);
+            if (canisterDate != null) {
+                try {
+                    lastCanisterDate = sdf.parse(canisterDate);
+                } catch (ParseException e) {
+                    lastCanisterDate = new Date(lastCanisterDate.getTime() - 2 * 24 * 3600 * 1000);
+                }
+            }
+            Date ctime = new Date();
+            Intent intent;
+            long diffDays = (ctime.getTime() - lastCanisterDate.getTime()) / (1000 * 60 * 60 * 24);
+            int test = ((int) diffDays);
+            if (test > 0) {
+                intent = new Intent(StoryActivity.this, StartActivity.class);
+            } else {
+                intent = new Intent(StoryActivity.this, MainMenuActivity.class);
+                //intent = new Intent(StoryActivity.this, StartActivity.class);
+            }
+            StoryActivity.this.startActivity(intent);
+            finish();
+        }
+    }
+
     public boolean onTouchEvent(MotionEvent event) {
         int action = event.getAction();
 
         if (action == MotionEvent.ACTION_UP) {
-            if (current == 1) {
-                story2.setVisibility(View.VISIBLE);
-                story1.setVisibility(View.INVISIBLE);
-            } else if (current == 2) {
-                story3.setVisibility(View.VISIBLE);
-                story2.setVisibility(View.INVISIBLE);
-            } else if (current == 3) {
-                story4.setVisibility(View.VISIBLE);
-                story3.setVisibility(View.INVISIBLE);
-            } else {
-                current = 0;
-                String canisterDate = db.getSettingDate();
-                Date lastCanisterDate = new Date();
-                lastCanisterDate = new Date(lastCanisterDate.getTime() - 2 * 24 * 3600 * 1000 );
-                if (canisterDate != null) {
-                    try {
-                        lastCanisterDate = sdf.parse(canisterDate);
-                    } catch (ParseException e) {
-                        lastCanisterDate = new Date(lastCanisterDate.getTime() - 2 * 24 * 3600 * 1000 );
-                    }
-                }
-                Date ctime = new Date();
-                Intent intent;
-                long diffDays = (ctime.getTime()- lastCanisterDate.getTime()) / (1000 * 60 * 60 * 24);
-                int test = ((int) diffDays);
-                if (test > 0) {
-                    intent = new Intent(StoryActivity.this, StartActivity.class);
-                } else {
-                    intent = new Intent(StoryActivity.this, MainMenuActivity.class);
-                    //intent = new Intent(StoryActivity.this, StartActivity.class);
-                }
-                StoryActivity.this.startActivity(intent);
-                finish();
-            }
+            nextPage();
             current ++;
         }
 

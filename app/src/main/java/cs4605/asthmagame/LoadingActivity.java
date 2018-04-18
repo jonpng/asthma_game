@@ -10,7 +10,7 @@ public class LoadingActivity extends AppCompatActivity {
 
     private DatabaseHandler db = new DatabaseHandler(this);
     private QuizFacts quizFact;
-    private TextView textViewCategory;
+    //private TextView textViewCategory;
     private TextView textViewFact;
     private static int SPLASH_TIME_OUT = 5000;
 
@@ -20,10 +20,13 @@ public class LoadingActivity extends AppCompatActivity {
         setContentView(R.layout.activity_loading);
 
         quizFact = db.getQuizFact();
-        textViewCategory = findViewById(R.id.textViewCategory);
+        if (quizFact == null) {
+            quizFact = new QuizFacts("test", "test");
+        }
+        //textViewCategory = findViewById(R.id.textViewCategory);
         textViewFact = findViewById(R.id.textViewFact);
 
-        textViewCategory.setText(quizFact.get_category());
+        //textViewCategory.setText(quizFact.get_category());
         textViewFact.setText(quizFact.get_fact());
 
 

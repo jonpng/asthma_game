@@ -81,21 +81,25 @@
 
     <ImageButton
         android:id="@+id/startButton"
-        android:layout_width="104dp"
-        android:layout_height="51dp"
+        android:layout_width="200dp"
+        android:layout_height="75dp"
         android:background="@null"
         android:scaleType="centerCrop"
-        app:layout_constraintRight_toLeftOf="@+id/guideline3"
+        android:visibility="visible"
+        app:layout_constraintRight_toLeftOf="@+id/guideline"
         app:layout_constraintTop_toBottomOf="@+id/guideline4"
-        app:srcCompat="@drawable/story_next" />
+        app:srcCompat="@drawable/nextbuttonwhite" />
 
-    <ImageView
-        android:id="@+id/imageView2"
+    <ImageButton
+        android:id="@+id/redoButton"
         android:layout_width="200dp"
-        android:layout_height="551dp"
-        app:layout_constraintRight_toLeftOf="@id/guideline"
-        app:layout_constraintTop_toBottomOf="@id/guideline2"
-        app:srcCompat="@drawable/lungbox" />
+        android:layout_height="42dp"
+        android:background="@null"
+        android:scaleType="centerCrop"
+        android:visibility="invisible"
+        app:layout_constraintRight_toLeftOf="@+id/guideline"
+        app:layout_constraintTop_toBottomOf="@+id/guideline4"
+        app:srcCompat="@drawable/rechargebutton" />
 
     <ImageView
         android:id="@+id/imageViewYellow"
@@ -124,13 +128,20 @@
         app:layout_constraintTop_toBottomOf="@id/guideline28"
         app:srcCompat="@drawable/lungbox_greenstripe" />
 
-    <Button
-        android:id="@+id/buttonRedo"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="REDO"
-        app:layout_constraintLeft_toRightOf="@+id/guideline30"
-        app:layout_constraintTop_toBottomOf="@+id/guideline4" />
+    <ImageView
+        android:id="@+id/imageView11"
+        android:layout_width="200dp"
+        android:layout_height="138dp"
+        app:layout_constraintRight_toLeftOf="@+id/guideline"
+        app:srcCompat="@drawable/niceworkheading" />
+
+    <ImageView
+        android:id="@+id/imageView2"
+        android:layout_width="200dp"
+        android:layout_height="551dp"
+        app:layout_constraintRight_toLeftOf="@id/guideline"
+        app:layout_constraintTop_toBottomOf="@id/guideline2"
+        app:srcCompat="@drawable/lungbox" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline"
@@ -158,7 +169,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="518dp" />
+        app:layout_constraintGuide_begin="502dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline5"
@@ -172,7 +183,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        app:layout_constraintGuide_begin="521dp" />
+        app:layout_constraintGuide_begin="519dp" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline35"
@@ -408,5 +419,12 @@
         android:layout_height="wrap_content"
         android:orientation="vertical"
         app:layout_constraintGuide_begin="133dp" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/guideline32"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_begin="546dp" />
 
 </android.support.constraint.ConstraintLayout>
