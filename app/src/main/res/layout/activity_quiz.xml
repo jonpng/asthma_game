@@ -1,15 +1,101 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/fragment_container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@drawable/quiz_bkground"
     tools:context="cs4605.asthmagame.QuizActivity">
 
-    <ImageView
-        android:id="@+id/imageView5"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:scaleType="centerCrop"
-        app:srcCompat="@drawable/quiz_bkground" />
-</android.support.constraint.ConstraintLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        >
+
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="210dp" />
+
+        <TextView
+            android:id="@+id/question_label"
+            android:layout_width="match_parent"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:layout_height="wrap_content"
+            android:textSize="24sp"
+            android:textAlignment="center"
+            android:fontFamily="@font/chalkboardse_regular"
+            android:textColor="@color/gunmetal"
+            />
+
+        <RadioGroup
+            android:id="@+id/answer_options"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:layout_gravity="start">
+
+            <RadioButton
+                android:id="@+id/answer_button_one"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_gravity="start"
+                android:clickable="true"
+                android:fontFamily="@font/chalkboardse_regular"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:background="@android:color/transparent"
+                android:layout_weight="1"
+                android:buttonTint="@android:color/white"/>
+
+            <RadioButton
+                android:id="@+id/answer_button_two"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_gravity="start"
+                android:clickable="true"
+                android:fontFamily="@font/chalkboardse_regular"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:background="@android:color/transparent"
+                android:layout_weight="1"
+                android:buttonTint="@android:color/white"/>
+
+            <RadioButton
+                android:id="@+id/answer_button_three"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="6dp"
+                android:layout_gravity="start"
+                android:clickable="true"
+                android:fontFamily="@font/chalkboardse_regular"
+                android:textColor="@android:color/white"
+                android:textSize="18sp"
+                android:background="@android:color/transparent"
+                android:layout_weight="1"
+                android:buttonTint="@android:color/white"/>
+
+        </RadioGroup>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/next_question_button"
+            android:layout_gravity="bottom|end"
+            android:gravity="bottom|end"
+            android:layout_marginEnd="12dp"
+            android:textSize="32sp"
+            android:fontFamily="@font/chalkboardse_bold"
+            android:textColor="@color/theme_yellow"
+            android:text="NEXT"/>
+    </LinearLayout>
+
+
+</LinearLayout>
