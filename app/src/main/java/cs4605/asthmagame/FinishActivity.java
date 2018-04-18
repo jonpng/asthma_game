@@ -1,6 +1,9 @@
 package cs4605.asthmagame;
 
+import android.app.Notification;
 import android.content.Intent;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.NotificationManagerCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -121,6 +124,24 @@ public class FinishActivity extends AppCompatActivity {
         imageGreenLvl9.setVisibility(View.INVISIBLE);
         imageGreenLvl10.setVisibility(View.INVISIBLE);
 
+
+        if (score < 45) {
+            NotificationCompat.Builder mBuilder = new NotificationCompat.Builder(this, "Score")
+                    .setContentTitle(getResources().getString(R.string.score_notification_title))
+                    .setSmallIcon(R.drawable.lung)
+                    .setPriority(NotificationCompat.PRIORITY_HIGH)
+                    .setDefaults(Notification.DEFAULT_ALL)
+                    .setStyle(new NotificationCompat.BigTextStyle());
+
+            if (score < 17) {
+                mBuilder.setContentText(getResources().getString(R.string.score_notification_red_threshold));
+            } else {
+                mBuilder.setContentText(getResources().getString(R.string.score_notification_yellow_threshold));
+            }
+
+            NotificationManagerCompat notificationManager = NotificationManagerCompat.from(this);
+            notificationManager.notify(score, mBuilder.build());
+        }
 
         if (score < 4) {
             imageViewRed.setVisibility(View.VISIBLE);

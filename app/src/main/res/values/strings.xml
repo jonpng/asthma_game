@@ -7,4 +7,8 @@
     <string name="dummy_button">Dummy Button</string>
     <string name="dummy_content">DUMMY\nCONTENT</string>
 
+    <string name="score_notification_title">Low lung power threshold</string>
+    <string name="score_notification_yellow_threshold">Your child\'s lung performance is below optimal!</string>
+    <string name="score_notification_red_threshold">Your child\'s lung performance critically low!</string>
+
 </resources>
