@@ -73,6 +73,13 @@ public class MainMenuActivity extends AppCompatActivity {
     }
 
     private void recharge() {
+        DatabaseHandler db = new DatabaseHandler(this);
+        int tryCount;
+        tryCount = db.getTries();
+        if (tryCount < 1) {
+            db.updateTries(++tryCount);
+        }
+        db.close();
         rechargeButton.setImageResource(R.drawable.button_selected);
         Intent activityIntent = new Intent(MainMenuActivity.this, StartActivity.class);
         startActivity(activityIntent);

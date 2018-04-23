@@ -29,7 +29,7 @@ public class MainActivity extends AppCompatActivity {
     private Date startTime;
     private Date endTime;
     private int cnt;
-    private DatabaseHandler db = new DatabaseHandler(this);
+
     private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
 
     private class AudioRecordingProcessAndSaveTask extends AsyncTask<Object, Void, Void> {
@@ -70,9 +70,9 @@ public class MainActivity extends AppCompatActivity {
     private ImageButton loadingButton;
     private ImageButton startButton;
     private TextView counterText;
-    private TextView processingText;
     private ImageView holdPhoneHeading;
     private ImageView pressStopHeading;
+    private ImageView pleaseWaitHeading;
     private MicrosoftSpeechToTextService microsoftSpeechToTextService;
 
     private AudioService audioService;
@@ -101,6 +101,17 @@ public class MainActivity extends AppCompatActivity {
 
     private PowerManager powerManager;
     private PowerManager.WakeLock wakeLock;
+    private ImageView meter1;
+    private ImageView meter2;
+    private ImageView meter3;
+    private ImageView meter4;
+    private ImageView meter5;
+    private ImageView meter6;
+    private ImageView meter7;
+    private ImageView meter8;
+    private ImageView meter9;
+    private ImageView meter10;
+    private int totalCount;
 
     private int field = 0x00000020;
 
@@ -277,7 +288,9 @@ public class MainActivity extends AppCompatActivity {
         disableStartButton();
         holdPhoneHeading.setVisibility(View.VISIBLE);
         pressStopHeading.setVisibility(View.INVISIBLE);
+        pleaseWaitHeading.setVisibility(View.INVISIBLE);
         loadingButton.setVisibility(View.INVISIBLE);
+
 
         final Runnable failedRunnable = new Runnable() {
             @Override
@@ -331,9 +344,21 @@ public class MainActivity extends AppCompatActivity {
 
         loadingButton = (ImageButton) findViewById(R.id.loadingButton);
         startButton = (ImageButton) findViewById(R.id.stopButton);
+        meter1 = findViewById(R.id.imageRedLvl1);
+        meter2 = findViewById(R.id.imageRedLvl2);
+        meter3 = findViewById(R.id.imageRedLvl3);
+        meter4 = findViewById(R.id.imageYellowLvl4);
+        meter5 = findViewById(R.id.imageYellowLvl5);
+        meter6 = findViewById(R.id.imageYellowLvl6);
+        meter7 = findViewById(R.id.imageYellowLvl7);
+        meter8 = findViewById(R.id.imageGreenLvl8);
+        meter9 = findViewById(R.id.imageGreenLvl9);
+        meter10 = findViewById(R.id.imageGreenLvl10);
+
 
         holdPhoneHeading = findViewById(R.id.holdPhoneHeading);
         pressStopHeading = findViewById(R.id.pressStopHeading);
+        pleaseWaitHeading = findViewById(R.id.pleaseWaitHeading);
 
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -352,14 +377,17 @@ public class MainActivity extends AppCompatActivity {
                         cnt = 0;
                     }
                     disableStartButton();
+                    pleaseWaitHeading.setVisibility(View.VISIBLE);
+                    pressStopHeading.setVisibility(View.INVISIBLE);
+                    holdPhoneHeading.setVisibility(View.INVISIBLE);
                     if (!waitForResult) {
-                        launchFinishScreen(counterText.getText().toString());
+                        launchFinishScreen(Integer.toString(totalCount));
                     } else {
                         final Handler resultHandler = new Handler();
                         resultHandler.postDelayed(new Runnable() {
                             @Override
                             public void run() {
-                                launchFinishScreen(counterText.getText().toString());
+                                launchFinishScreen(Integer.toString(totalCount));
                             }
                         }, Config.SCORE_DELAY);
                     }
@@ -378,10 +406,10 @@ public class MainActivity extends AppCompatActivity {
         extras.putString("prefix", participantPrefix);
         extras.putString("startDate", sdf.format(startTime));
         if (hasInternet) {
-            //db.addCanister(new Canister(startTime, Integer.parseInt(score)));
+
             extras.putString("score", score);
         } else {
-            //db.addCanister(new Canister(startTime, cnt));
+
             extras.putString("score", Integer.toString(cnt));
         }
         activityIntent.putExtras(extras);
@@ -394,14 +422,16 @@ public class MainActivity extends AppCompatActivity {
         startButton.setVisibility(View.INVISIBLE);
         pressStopHeading.setVisibility(View.VISIBLE);
         holdPhoneHeading.setVisibility(View.INVISIBLE);
+        pleaseWaitHeading.setVisibility(View.INVISIBLE);
         loadingButton.setVisibility(View.VISIBLE);
         startButton.setClickable(false);
     }
 
     private void enableStartButton() {
         startButton.setVisibility(View.VISIBLE);
-        holdPhoneHeading.setVisibility(View.VISIBLE);
-        pressStopHeading.setVisibility(View.INVISIBLE);
+        holdPhoneHeading.setVisibility(View.INVISIBLE);
+        pressStopHeading.setVisibility(View.VISIBLE);
+        pleaseWaitHeading.setVisibility(View.INVISIBLE);
         loadingButton.setVisibility(View.INVISIBLE);
         startButton.setClickable(true);
     }
@@ -455,6 +485,7 @@ public class MainActivity extends AppCompatActivity {
 
     private void setCounterCount(int count) {
         counterText.setText("Counter: " + count);
+        totalCount = count;
         displayCount = count;
     }
 

@@ -162,6 +162,7 @@ public class DailyLogin extends AppCompatActivity {
             long diffDays = (ctime.getTime()- lastCanisterDate.getTime()) / (1000 * 60 * 60 * 24);
             int test = ((int) diffDays);
             if (test > 0) {
+
                 intent = new Intent(DailyLogin.this, StoryActivity.class);
             } else {
                 intent = new Intent(DailyLogin.this, MainMenuActivity.class);
@@ -170,6 +171,7 @@ public class DailyLogin extends AppCompatActivity {
 
             //Intent intent = new Intent(DailyLogin.this, StoryActivity.class);
             DailyLogin.this.startActivity(intent);
+            db.close();
             finish();
         }
         return true;
@@ -178,6 +180,7 @@ public class DailyLogin extends AppCompatActivity {
     public void onBackPressed() {
         Intent activityIntent = new Intent(DailyLogin.this, MainMenuActivity.class);
         startActivity(activityIntent);
+        db.close();
         finish();
     }
 

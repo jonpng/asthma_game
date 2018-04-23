@@ -63,6 +63,11 @@ public class StoryActivity extends AppCompatActivity {
             long diffDays = (ctime.getTime() - lastCanisterDate.getTime()) / (1000 * 60 * 60 * 24);
             int test = ((int) diffDays);
             if (test > 0) {
+                int tryCount;
+                tryCount = db.getTries();
+                if (tryCount < 1) {
+                    db.updateTries(++tryCount);
+                }
                 intent = new Intent(StoryActivity.this, StartActivity.class);
             } else {
                 intent = new Intent(StoryActivity.this, MainMenuActivity.class);

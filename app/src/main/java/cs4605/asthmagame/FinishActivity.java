@@ -49,6 +49,7 @@ public class FinishActivity extends AppCompatActivity {
     private ImageView imageGreenLvl10;
     private DatabaseHandler db = new DatabaseHandler(this);
     private SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
+    private int tryCount;
 
 
     @Override
@@ -68,6 +69,8 @@ public class FinishActivity extends AppCompatActivity {
         startButton = (ImageButton) findViewById(R.id.startButton);
         redoButton = (ImageButton) findViewById(R.id.redoButton);
         scoreText = (TextView) findViewById(R.id.scoreText);
+        tryCount = db.getTries();
+
 
         if (participantScore != null){
             scoreText.setText(participantScore);
@@ -221,6 +224,14 @@ public class FinishActivity extends AppCompatActivity {
             imageGreenLvl10.setVisibility(View.VISIBLE);
         }
 
+        if (score < 17 && tryCount > 0) {
+            startButton.setVisibility(View.INVISIBLE);
+            redoButton.setVisibility(View.VISIBLE);
+        } else {
+            redoButton.setVisibility(View.INVISIBLE);
+            startButton.setVisibility(View.VISIBLE);
+        }
+
         startButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -239,12 +250,15 @@ public class FinishActivity extends AppCompatActivity {
 
     private void startGame() {
         db.addCanister(new Canister(startDate, Integer.parseInt(participantScore)));
+        db.close();
         Intent activityIntent = new Intent(FinishActivity.this, MainMenuActivity.class);
         startActivity(activityIntent);
         finish();
     }
 
     public void redo() {
+        db.updateTries(--tryCount);
+        db.close();
         Intent activityIntent = new Intent(FinishActivity.this, StartActivity.class);
         startActivity(activityIntent);
         finish();

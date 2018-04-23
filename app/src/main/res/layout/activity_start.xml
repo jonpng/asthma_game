@@ -46,7 +46,7 @@
         android:layout_height="144dp"
         app:layout_constraintBottom_toTopOf="@+id/guideline33"
         app:layout_constraintRight_toLeftOf="@+id/guideline2"
-        app:srcCompat="@drawable/txt_recharge" />
+        app:srcCompat="@drawable/chargelungmachineheading" />
 
     <android.support.constraint.Guideline
         android:id="@+id/guideline3"

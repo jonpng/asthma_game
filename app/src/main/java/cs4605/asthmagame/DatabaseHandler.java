@@ -250,6 +250,28 @@ public class DatabaseHandler  extends SQLiteOpenHelper {
         return null;
     }
 
+    public int getTries () {
+        String remaining;
+        Cursor c = getReadableDatabase().rawQuery(
+                "SELECT "+ KEY_EXTRA + " FROM " + TABLE_SETTINGS + "" ,  null);
+        if (c != null && c.moveToFirst()) {
+            //c.moveToFirst();
+            remaining = c.getString(0);
+            c.close();
+            return Integer.parseInt(remaining);
+        }
+        c.close();
+        return 0;
+    }
+
+    public void updateTries(int newvalue) {
+        SQLiteDatabase db = this.getWritableDatabase();
+        ContentValues values = new ContentValues();
+        values.put(KEY_EXTRA, newvalue);
+        db.update(TABLE_SETTINGS, values,null,null);
+        db.close();
+    }
+
     public QuizFacts getQuizFact() {
 
         String cat;

@@ -21,6 +21,7 @@ public class StartActivity extends AppCompatActivity {
     private String participantPrefix;
     private ImageButton rechargeButton;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
