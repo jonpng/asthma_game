@@ -10,7 +10,6 @@ public class LoadingActivity extends AppCompatActivity {
 
     private DatabaseHandler db = new DatabaseHandler(this);
     private QuizFacts quizFact;
-    //private TextView textViewCategory;
     private TextView textViewFact;
     private static int SPLASH_TIME_OUT = 5000;
 
@@ -19,17 +18,18 @@ public class LoadingActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_loading);
 
+        // Retrieve a quiz fact from the sqlite database to display on the screen
         quizFact = db.getQuizFact();
         if (quizFact == null) {
-            quizFact = new QuizFacts("test", "test");
+            // load a default fact if the database could not be queried for any reason
+            quizFact = new QuizFacts("test", "Continuous cough, chest tightness and chest pain are symptoms of an Asthma attack.");
         }
-        //textViewCategory = findViewById(R.id.textViewCategory);
+
         textViewFact = findViewById(R.id.textViewFact);
 
-        //textViewCategory.setText(quizFact.get_category());
         textViewFact.setText(quizFact.get_fact());
 
-
+        // Delay for the screen to close
         new Handler().postDelayed(new Runnable() {
             @Override
             public void run() {
