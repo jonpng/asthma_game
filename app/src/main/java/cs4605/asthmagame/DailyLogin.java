@@ -147,6 +147,8 @@ public class DailyLogin extends AppCompatActivity {
         int action = event.getAction();
 
         if (action == MotionEvent.ACTION_UP) {
+            // the following checks the code to see when the last time the ma-ma was done.
+            // if it was greater than a day, the story line is played, if not the main menu is displayed
             String canisterDate = db.getSettingDate();
             Date lastCanisterDate = new Date();
             lastCanisterDate = new Date(lastCanisterDate.getTime() - 2 * 24 * 3600 * 1000 );

@@ -100,11 +100,19 @@ public class DatabaseHandler  extends SQLiteOpenHelper {
         loadQuizTable(db);
     }
 
+    /**
+     * deleteQuizTable removes all the records from the quiz table
+     * @param db the activity the database is handling
+     */
     private void deleteQuizTable(SQLiteDatabase db) {
         db.delete(TABLE_QUIZ,null,null);
 
     }
 
+    /**
+     * loadQuizTable loads the quiz table with questions
+     * @param db the activity the database is handling
+     */
     private void loadQuizTable(SQLiteDatabase db) {
         ContentValues values = new ContentValues();
 
@@ -218,6 +226,10 @@ public class DatabaseHandler  extends SQLiteOpenHelper {
 
     }
 
+    /**
+     * addCanister adds the ma-ma count to the settings and history tables
+     * @param canister gets Canister class to load
+     */
     public void addCanister (Canister canister) {
         SQLiteDatabase db = this.getWritableDatabase();
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -235,6 +247,10 @@ public class DatabaseHandler  extends SQLiteOpenHelper {
         db.close(); // Closing database connection
     }
 
+    /**
+     * getSettingDate Gets the last date of the ma-ma count
+     * @return String Returns the date in the settings table for the last ma-ma count
+     */
     public String getSettingDate () {
         String lastCanisterDate;
         SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd HH:mm:ss");
@@ -250,6 +266,10 @@ public class DatabaseHandler  extends SQLiteOpenHelper {
         return null;
     }
 
+    /**
+     * getTries Gets the number of retries left for ma-ma analysis
+     * @return int returns the ma-ma tries left
+     */
     public int getTries () {
         String remaining;
         Cursor c = getReadableDatabase().rawQuery(
@@ -264,6 +284,10 @@ public class DatabaseHandler  extends SQLiteOpenHelper {
         return 0;
     }
 
+    /**
+     * updateTries Change the number of ma-ma retries to passed in integer
+     * @param newvalue integer of number of tries to load
+     */
     public void updateTries(int newvalue) {
         SQLiteDatabase db = this.getWritableDatabase();
         ContentValues values = new ContentValues();
@@ -272,6 +296,10 @@ public class DatabaseHandler  extends SQLiteOpenHelper {
         db.close();
     }
 
+    /**
+     * getQuizFact Gets the quiz fact
+     * @return QuizFacts returns the quiz fact
+     */
     public QuizFacts getQuizFact() {
 
         String cat;
@@ -292,6 +320,10 @@ public class DatabaseHandler  extends SQLiteOpenHelper {
 
     }
 
+    /**
+     * getQuizQuestions Gets the quiz questions to show
+     * @return ArrayList<QuizQuestions> returns the quiz information
+     */
     public ArrayList<QuizQuestions> getQuizQuestions() {
 
         ArrayList<QuizQuestions> questionsForQuiz = new ArrayList<>();
@@ -331,6 +363,11 @@ public class DatabaseHandler  extends SQLiteOpenHelper {
         return null;
     }
 
+    /**
+     * setQuestionResult Sets if the quiz question were answered correctly
+     * @param answeredCorrectly if it was answered correctly
+     * @param question question anstered
+     */
     public void setQuestionResult(String answeredCorrectly, String question) {
         ContentValues data = new ContentValues();
         data.put(KEY_ANSWERED_CORRECTLY, answeredCorrectly);
